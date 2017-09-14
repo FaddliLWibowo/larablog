@@ -8,6 +8,12 @@ use App\Category;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        $posts = Post::all();
+        return view('post.index', compact('posts'));
+    }
+    
     public function create()
     {
         $categories = Category::all();
