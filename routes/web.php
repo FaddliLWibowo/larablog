@@ -24,3 +24,4 @@ Route::get('/post/create', 'PostController@create')->name('post.create');
 Route::post('/post/create', 'PostController@store')->name('post.store');
 Route::get('/post/{post}/edit', 'PostController@edit')->name('post.edit');
 Route::patch('/post/{post}/edit', 'PostController@update')->name('post.update');
+Route::delete('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
