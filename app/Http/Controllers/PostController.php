@@ -29,7 +29,7 @@ class PostController extends Controller
             'slug' => str_slug(request('title'))
         ]);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->withSuccess('Data berhasil ditambahkan');
     }
 
     public function edit(Post $post)
@@ -48,14 +48,14 @@ class PostController extends Controller
             'slug' => str_slug(request('title'))
         ]);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->withInfo('Data berhasil dirubah');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->withDanger('Data berhasil dihapus');
     }
 
 }

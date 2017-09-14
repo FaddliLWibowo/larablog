@@ -72,7 +72,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('layouts.partials._alerts')
         @yield('content')
     </div>
 
