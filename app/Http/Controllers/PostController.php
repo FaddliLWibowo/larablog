@@ -13,7 +13,7 @@ class PostController extends Controller
         $posts = Post::all();
         return view('post.index', compact('posts'));
     }
-    
+
     public function create()
     {
         $categories = Category::all();
@@ -29,7 +29,26 @@ class PostController extends Controller
             'slug' => str_slug(request('title'))
         ]);
 
-        return redirect('/home');
+        return redirect()->route('post.index');
+    }
+
+    public function edit(Post $post)
+    {
+        $categories = Category::all();
+
+        return view('post.edit', compact('post', 'categories'));
+    }
+
+    public function update(Post $post)
+    {
+        $post->update([
+            'title' => request('title'),
+            'content' => request('content'),
+            'category_id' => request('category_id'),
+            'slug' => str_slug(request('title'))
+        ]);
+
+        return redirect()->route('post.index');
     }
 
 }
